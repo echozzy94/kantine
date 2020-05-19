@@ -115,6 +115,20 @@ public class Datum {
 	 */
 	public String getDatumAsString() {
 		// TODO
-		return "";
+		String d = String.valueOf(dag);
+		String m = String.valueOf(maand);
+		String j = String.valueOf(jaar);
+		return d + " " + m + " " + j;
 	}
+
+	@Override
+	public String toString() {
+		return "{" +
+			" dag='" + getDag() + "'" +
+			", maand='" + getMaand() + "'" +
+			", jaar='" + getJaar() + "'" +
+			"}";
+	}
+
+
 }

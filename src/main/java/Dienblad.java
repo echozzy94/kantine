@@ -45,7 +45,7 @@ public class Dienblad {
     public double getTotaalPrijs() {
         double totaalPrijs = 0.00;
         for (int i = 0; i < artikelen.size(); i++) {
-            float prijs = artikelen.get(i).getPrijs();
+            double prijs = artikelen.get(i).getPrijs();
             totaalPrijs = totaalPrijs + prijs;
         }
         return totaalPrijs;
@@ -59,5 +59,16 @@ public class Dienblad {
     public Persoon getKlant() {
         return klant;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " artikelen='" + getAantalArtikelen() + "'" +
+            ", klant='" + getKlant() + "'" +
+            ", totaalprijs ='" + getTotaalPrijs() + "'" +
+            "}";
+    }
+
+   
 }
 

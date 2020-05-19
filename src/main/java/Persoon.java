@@ -14,10 +14,10 @@ public class Persoon {
         this.voorNaam = voorNaam;
         this.achterNaam = achterNaam;
         this.geboorteDatum = new Datum(dag, maand, jaar);
-        if (geslacht != 'M' || geslacht != 'V') {
-            this.geslacht = 'O';
-        } else {
+        if (geslacht == 'M' || geslacht == 'V') {
             this.geslacht = geslacht;
+        } else {
+            this.geslacht = 'O';
         }
     }
 
@@ -75,9 +75,9 @@ public class Persoon {
     }
 
     public String getGeslacht() {
-        if (this.geslacht == 'M') {
+        if (geslacht == 'M') {
             return "Man";
-        } else if (this.geslacht == 'V') {
+        } else if (geslacht == 'V') {
             return "Vrouw";
         } else {
             return "Onbekend";
@@ -85,7 +85,7 @@ public class Persoon {
     }
 
     public String toString(){
-        return BSN + " " + voorNaam + " " + " " + " " + achterNaam + " " + getGeboorteDatum() + " " + getGeslacht();
+        return BSN + " " + voorNaam + " " + achterNaam + " " + getGeboorteDatum() + " " + getGeslacht();
     }
 }
 

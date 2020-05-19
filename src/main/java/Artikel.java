@@ -1,7 +1,7 @@
 public class Artikel {
 
     private String naam;
-    private float prijs;
+    private double prijs;
 
     /**
      * Constructor
@@ -9,7 +9,7 @@ public class Artikel {
      * @param prijs = Prijs van het artikel
      */
 
-    public Artikel(String naam, float prijs) {
+    public Artikel(String naam, double prijs) {
         this.naam = naam;
         this.prijs = prijs;
     }
@@ -39,7 +39,7 @@ public class Artikel {
      * Setter voor variabele prijs
      * @param prijs
      */
-    public void setPrijs(float prijs) {
+    public void setPrijs(double prijs) {
         this.prijs = prijs;
     }
 
@@ -47,7 +47,7 @@ public class Artikel {
      * Getter voor variabele prijs
      * @return prijs
      */
-    public float getPrijs() {
+    public double getPrijs() {
         return prijs;
     }
 

@@ -2,13 +2,17 @@ import java.util.ArrayList;
 
 public class KassaRij {
 
-    private ArrayList<Dienblad> kassaRij;
+    private ArrayList<Dienblad> arrayKassarij;
 
     /**
      * Constructor
      */
     public KassaRij() {
-        kassaRij = new ArrayList<Dienblad>();
+        arrayKassarij = new ArrayList<Dienblad>();
+    }
+    public String getKassaRij(){
+        String r = String.valueOf(arrayKassarij.size());
+        return r;
     }
 
     /**
@@ -17,7 +21,7 @@ public class KassaRij {
      * @param dienblad
      */
     public void sluitAchteraan(Dienblad dienblad) {
-            kassaRij.add(dienblad);
+            arrayKassarij.add(dienblad);
         }
 
     /**
@@ -29,8 +33,8 @@ public class KassaRij {
     public Dienblad eerstePersoonInRij() {
         boolean isErEenRij = erIsEenRij();
         if (isErEenRij == true) {
-            Dienblad eersteKlant = kassaRij.get(0);
-            kassaRij.remove(0);
+            Dienblad eersteKlant = arrayKassarij.get(0);
+            arrayKassarij.remove(0);
             return eersteKlant;
         }
         return null;
@@ -42,7 +46,7 @@ public class KassaRij {
      * @return Of er wel of geen rij bestaat
      */
     public boolean erIsEenRij() {
-        int rij = kassaRij.size();
+        int rij = arrayKassarij.size();
         if(rij == 0) {
             return false;
         }
