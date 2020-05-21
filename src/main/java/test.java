@@ -1,3 +1,4 @@
+
 public class test {
 private Artikel artikel1;
 private Artikel artikel2;
@@ -20,15 +21,16 @@ private Kassa kassa1;
 
 public static void main(String[] args) {
     ////Artikel klasse test //////////
-    Artikel artikel1 = new Artikel("Koekje", 0.50);
-    Artikel artikel2 = new Artikel("Banaan", 1.50);
-    Artikel artikel3 = new Artikel("Appel", 0.30);
-    Artikel artikel4 = new Artikel("Broodje", 3.50);
-    Artikel artikel5 = new Artikel("Sinaasappelsap", 1.75);
+    Artikel artikel1 = new Artikel("Koekje", "0.50");
+    Artikel artikel2 = new Artikel("Banaan", "1.50");
+    Artikel artikel3 = new Artikel("Appel", "0.30");
+    Artikel artikel4 = new Artikel("Broodje", "3.50");
+    Artikel artikel5 = new Artikel("Sinaasappelsap", "1.75");
     System.out.println(artikel1.toString());
     artikel1.setNaam("Ijsje");
     System.out.println(artikel1.getNaam());
-    artikel1.setPrijs(0.70);
+    artikel1.setPrijs("0.70");
+    System.out.println(artikel2.getPrijs().subtract(artikel1.getPrijs()));
     System.out.println(artikel1.toString());
     /////////////// Datum klasse test //////
     Datum datumleeg = new Datum();

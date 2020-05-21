@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Kassa {
 
     private KassaRij kassa;
-    private double kassaTotaal = 0.00;
+    private BigDecimal kassaTotaal = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
     private int gepasseerdeArtikelen = 0;
     /**
      * Constructor
@@ -23,8 +25,8 @@ public class Kassa {
      */
     public void rekenAf(Dienblad dienblad) {
         int aantalArtikelen = dienblad.getAantalArtikelen();
-        double totalePrijs = dienblad.getTotaalPrijs();
-        kassaTotaal = kassaTotaal + totalePrijs;
+        BigDecimal totalePrijs = dienblad.getTotaalPrijs();
+        kassaTotaal = kassaTotaal.add(totalePrijs);
         gepasseerdeArtikelen = gepasseerdeArtikelen + aantalArtikelen;
 
     }
@@ -45,7 +47,7 @@ public class Kassa {
      *
      * @return hoeveelheid geld in de kassa
      */
-    public double hoeveelheidGeldInKassa() {
+    public BigDecimal hoeveelheidGeldInKassa() {
         return kassaTotaal;
     }
 
@@ -54,7 +56,7 @@ public class Kassa {
      * kassa.
      */
     public void resetKassa() {
-        kassaTotaal = 0;
+        kassaTotaal = new BigDecimal(0.00);
         gepasseerdeArtikelen = 0;
     }
 }

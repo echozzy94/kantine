@@ -1,22 +1,28 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Artikel {
 
     private String naam;
-    private double prijs;
+    private BigDecimal prijs;
 
     /**
      * Constructor
      * @param naam = Naam van het artikel
-     * @param prijs = Prijs van het artikel
+     * @param prijs = Prijs van het artikel in String datatype welke word opgeslagen in BigDecimal object
      */
 
-    public Artikel(String naam, double prijs) {
+    public Artikel(String naam, String prijs) {
         this.naam = naam;
-        this.prijs = prijs;
+        this.prijs = new BigDecimal(prijs).setScale(2, RoundingMode.HALF_UP);
     }
 
+    /**
+     * Constructor voor een leeg object
+     */
     public Artikel() {
         naam = "";
-        prijs = 0;
+        prijs = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
@@ -39,15 +45,15 @@ public class Artikel {
      * Setter voor variabele prijs
      * @param prijs
      */
-    public void setPrijs(double prijs) {
-        this.prijs = prijs;
+    public void setPrijs(String prijs) {
+        this.prijs = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
      * Getter voor variabele prijs
      * @return prijs
      */
-    public double getPrijs() {
+    public BigDecimal getPrijs() {
         return prijs;
     }
 
@@ -56,7 +62,7 @@ public class Artikel {
      * @return naam van artikel gevolg door spatie en prijs van artikel
      */
     public String toString() {
-        return naam + " " + prijs;
+        return naam + " " + this.getPrijs();
     }
 
 }

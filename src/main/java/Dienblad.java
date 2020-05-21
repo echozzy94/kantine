@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Dienblad {
@@ -39,15 +40,15 @@ public class Dienblad {
     }
 
     /**
-     * Methode om de totaalprijs van de artikelen op dienblad uit te rekenen
+     * Methode om de totaalprijs van de artikelen op dienblad uit te rekenen middels BigDecimal datatype
      *
      * @return De totaalprijs
      */
-    public double getTotaalPrijs() {
-        double totaalPrijs = 0.00;
+    public BigDecimal getTotaalPrijs() {
+        BigDecimal totaalPrijs = new BigDecimal(0.00);
         for (int i = 0; i < artikelen.size(); i++) {
-            double prijs = artikelen.get(i).getPrijs();
-            totaalPrijs = totaalPrijs + prijs;
+            BigDecimal prijs = artikelen.get(i).getPrijs();
+            totaalPrijs = totaalPrijs.add(prijs);
         }
         return totaalPrijs;
     }
