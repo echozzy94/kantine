@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Dienblad {
     private ArrayList<Artikel> artikelen;
     private Persoon klant;
+
     /**
      * Constructor
      */
@@ -51,15 +52,26 @@ public class Dienblad {
         return totaalPrijs;
     }
 
+    /**
+     * Setter voor Persoon
+     * @param persoon
+     */
     public void setPersoon(Persoon persoon) {
         this.klant = persoon;
     }
 
-
+    /**
+     * Getter voor persoon
+     * @return De gegevens van de persoon
+     */
     public Persoon getKlant() {
         return klant;
     }
 
+    /**
+     * toString methode voor output
+     * @return Het aantal artikelen, de klant en de totaalprijs van de artikelen op het dienblad
+     */
     @Override
     public String toString() {
         return "{" +

@@ -8,6 +8,16 @@ public class Persoon {
     private Datum geboorteDatum;
     private char geslacht;
 
+    /**
+     * Constructor
+     * @param BSN Het burgerservicenummer van de persoon
+     * @param voorNaam De voornaam van de persoon
+     * @param achterNaam de achternaam van de persoon
+     * @param geslacht Het geslacht van de persoon als karakter 'M' of 'V'
+     * @param dag Geboortedag van de persoon
+     * @param maand Geboortemaand van de persoon
+     * @param jaar Geboortejaar van de persoon
+     */
 
     public Persoon(int BSN, String voorNaam, String achterNaam, char geslacht, int dag, int maand, int jaar) {
         this.BSN = BSN;
@@ -29,22 +39,42 @@ public class Persoon {
         geslacht = 'O';
     }
 
+    /**
+     * Setter voor het burgerservicenummer
+     * @param BSN Het burgerservicenummer van de persoon
+     */
     public void setBSN(int BSN) {
         this.BSN = BSN;
     }
 
+    /**
+     * Setter voor de voornaam
+     * @param voorNaam De voornaam van de persoon
+     */
     public void setVoorNaam(String voorNaam) {
         this.voorNaam = voorNaam;
     }
 
+    /**
+     * Setter voor de achternaam
+     * @param achterNaam De achternaam van de persoon
+     */
     public void setAchterNaam(String achterNaam) {
         this.achterNaam = achterNaam;
     }
 
+    /**
+     * Setter voor de geboortedatum
+     * @param geboorteDatum De geboortedatum van de persoon
+     */
     public void setGeboorteDatum(Datum geboorteDatum) {
         this.geboorteDatum = geboorteDatum;
     }
 
+    /**
+     * Setter voor het geslacht, deze controleert of het juist ingevuld is, zo niet, dan wordt er een 'O' voor onbekend ingevuld
+     * @param geslacht Het geslacht van de persoon
+     */
     public void setGeslacht(char geslacht) {
         if (geslacht == 'M' || geslacht == 'V') {
             this.geslacht = geslacht;
@@ -54,18 +84,34 @@ public class Persoon {
         }
     }
 
+    /**
+     * Getter voor het burgerservicenummer
+     * @return Het burgerservicenummer van de persoon
+     */
     public int getBSN() {
         return BSN;
     }
 
+    /**
+     * Getter voor de voornaam
+     * @return De voornaam van de persoon
+     */
     public String getVoorNaam() {
         return voorNaam;
     }
 
+    /**
+     * Getter voor de achternaam
+     * @return De achternaam van de persoon
+     */
     public String getAchterNaam() {
         return achterNaam;
     }
 
+    /**
+     * Getter voor de geboortedatum
+     * @return De geboortedatum van de persoon
+     */
     public String getGeboorteDatum() {
         if (geboorteDatum.getDag() == 0) {
             return "Onbekend";
@@ -74,6 +120,10 @@ public class Persoon {
         }
     }
 
+    /**
+     * Getter voor het geslacht
+     * @return Het geslacht van de persoon
+     */
     public String getGeslacht() {
         if (geslacht == 'M') {
             return "Man";
@@ -84,6 +134,10 @@ public class Persoon {
         }
     }
 
+    /**
+     * toString methode voor output
+     * @return BSN, voornaam, achternaam, geboortedatum, geslacht
+     */
     public String toString(){
         return BSN + " " + voorNaam + " " + achterNaam + " " + getGeboorteDatum() + " " + getGeslacht();
     }

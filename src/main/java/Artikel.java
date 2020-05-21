@@ -51,6 +51,10 @@ public class Artikel {
         return prijs;
     }
 
+    /**
+     * toString methode voor output
+     * @return naam van artikel gevolg door spatie en prijs van artikel
+     */
     public String toString() {
         return naam + " " + prijs;
     }
