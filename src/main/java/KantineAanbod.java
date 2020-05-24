@@ -37,6 +37,15 @@ public class KantineAanbod {
         aanbod.put(productnaam, huidigeVoorraad);
     }
 
+    // Week 2 opgave 5 a:
+    // Waarom zijn de 2 onderstaande methodes private?
+    // De 2 onderstaande methodes zijn private, omdat 
+
+    // Week 2 opgave 5 b:
+    // Wanneer gebruik je HashMap? en wanneer gebruik je HashSet?
+    // Je gebruikt HashMap als:
+    // Je gebruikt HashSet als:
+
     /*
      * Private methode om de lijst van artikelen te krijgen op basis van de naam van het artikel.
      * Retourneert null als artikel niet bestaat.
