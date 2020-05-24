@@ -3,6 +3,9 @@ public class Kantine {
 
     private Kassa kassa;
     private KassaRij kassarij;
+    //opgave 5c:
+    private KantineAanbod kantineaanbod;
+
 
     /**
      * Constructor
@@ -17,6 +20,7 @@ public class Kantine {
      * Artikelen aan en plaats deze op het dienblad. Tenslotte sluit de Persoon zich aan bij de rij
      * voor de kassa.
      */
+    /*
     public void loopPakSluitAan(Persoon persoon, Dienblad dienblad, Artikel artikel1, Artikel artikel2) {
         persoon = new Persoon();
         dienblad = new Dienblad(persoon);
@@ -25,6 +29,17 @@ public class Kantine {
         dienblad.voegToe(artikel1);
         dienblad.voegToe(artikel2);
         kassarij.sluitAchteraan(dienblad);
+    } 
+    */
+
+    /**
+     * In deze methode wordt een dienblad met artikelen in de kassarij geplaatst
+     * 
+     * @param dienblad
+     * @param artikelnamen
+     */
+    public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen){
+        
     }
 
     /**
@@ -34,6 +49,21 @@ public class Kantine {
         while (kassarij.erIsEenRij() == true) {
             kassarij.eerstePersoonInRij();
         }
+    }
+
+    // opgave 4b
+    public Kassa getKassa(){
+        return kassa;
+    }
+
+    // opgave 5c
+    public void setKantineaanbod(KantineAanbod kantineaanbod){
+        this.kantineaanbod = kantineaanbod;
+    }
+
+    // opgave 5c
+    public KantineAanbod getKantineaanbod(){
+        return this.kantineaanbod;
     }
 
     /**
@@ -64,5 +94,5 @@ public class Kantine {
 
     // Week 2 opgave 4 a:
     // de methodes die voorkomen in Kassa.java en Kantine.java zijn:
-    // aantalArtikelen, hoeveelheidGeldInKassa en resetKassa.
+    // aantalArtikelen en hoeveelheidGeldInKassa.
 }
