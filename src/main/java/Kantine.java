@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 public class Kantine {
 
     private Kassa kassa;
@@ -40,24 +41,28 @@ public class Kantine {
      *
      * @return hoeveelheid geld in kassa
      */
-    public double hoeveelheidGeldInKassa() {
-       return kassa.hoeveelheidGeldInKassa();
-    }
+//    public BigDecimal hoeveelheidGeldInKassa() {
+//       return kassa.hoeveelheidGeldInKassa();
+//    }
 
     /**
      * Deze methode geeft het aantal gepasseerde artikelen.
      *
      * @return het aantal gepasseerde artikelen
      */
-    public int aantalArtikelen() {
-        return kassa.aantalArtikelen();
-    }
+//    public int aantalArtikelen() {
+//        return kassa.aantalArtikelen();
+//    }
 
     /**
      * Deze methode reset de bijgehouden telling van het aantal artikelen en "leegt" de inhoud van
      * de kassa.
      */
-    public void resetKassa() {
-        kassa.resetKassa();
-    }
+//    public void resetKassa() {
+//        kassa.resetKassa();
+//    }
+
+    // Week 2 opgave 4 a:
+    // de methodes die voorkomen in Kassa.java en Kantine.java zijn:
+    // aantalArtikelen, hoeveelheidGeldInKassa en resetKassa.
 }

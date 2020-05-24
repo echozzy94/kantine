@@ -2,6 +2,13 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Stack;
 
+/**
+ * klasse Dienblad
+ * 
+ * @author Bryant, Enzo en Rienan
+ * @version 24-5-2020
+ */
+
 public class Dienblad {
     private Stack<Artikel> artikelen;
     private Persoon klant;
