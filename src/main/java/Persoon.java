@@ -7,6 +7,7 @@ public class Persoon {
     private String achterNaam;
     private Datum geboorteDatum;
     private char geslacht;
+    private Dienblad dienblad;
 
     /**
      * Constructor
@@ -132,6 +133,10 @@ public class Persoon {
         } else {
             return "Onbekend";
         }
+    }
+
+    public void setDienblad(Dienblad dienblad){
+        this.dienblad = dienblad;
     }
 
     /**

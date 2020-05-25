@@ -24,11 +24,13 @@ public class Kassa {
      * @param dienblad Is het dienblad van de klant die moet afrekenen
      */
     public void rekenAf(Dienblad dienblad) {
-        int aantalArtikelen = dienblad.getAantalArtikelen();
-        BigDecimal totalePrijs = dienblad.getTotaalPrijs();
-        kassaTotaal = kassaTotaal.add(totalePrijs);
-        gepasseerdeArtikelen = gepasseerdeArtikelen + aantalArtikelen;
-
+        Iterator<Artikel> artikelen = dienblad.getIterator();
+        while(artikelen.hasNext()){
+            Artikel artikel = artikelen.next();
+            BigDecimal totalePrijs = artikel.getPrijs();
+            kassaTotaal = kassaTotaal.add(totalePrijs);
+            gepasseerdeArtikelen++;
+        } 
     }
 
     /**
