@@ -91,9 +91,9 @@ public class Kantine {
      *
      * @return hoeveelheid geld in kassa
      */
-//    public BigDecimal hoeveelheidGeldInKassa() {
-//       return kassa.hoeveelheidGeldInKassa();
-//    }
+    public BigDecimal hoeveelheidGeldInKassa() {
+       return kassa.hoeveelheidGeldInKassa();
+    }
 
     /**
      * Deze methode geeft het aantal gepasseerde artikelen.

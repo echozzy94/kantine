@@ -4,17 +4,17 @@ public class KantineAanbod {
     // interne opslag voorraad
     private HashMap<String, ArrayList<Artikel>> aanbod;
     private HashMap<String, Integer> startVoorraad;
-    private HashMap<String, Double> prijzen;
+    private HashMap<String, String> prijzen;
 
     /**
      * Constructor. Het eerste argument is een lijst met artikelnamen, het tweede argument is
      * eenlijst met prijzen en het derde argument is een lijst met hoeveelheden. Let op: de
      * dimensies van de drie arrays moeten wel gelijk zijn!
      */
-    public KantineAanbod(String[] artikelnaam, double[] prijs, int[] hoeveelheid) {
+    public KantineAanbod(String[] artikelnaam, String[] prijs, int[] hoeveelheid) {
         aanbod = new HashMap<String, ArrayList<Artikel>>();
         startVoorraad = new HashMap<String, Integer>();
-        prijzen = new HashMap<String, Double>();
+        prijzen = new HashMap<String, String>();
         for (int i = 0; i < artikelnaam.length; i++) {
             ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
             for (int j = 0; j < hoeveelheid[i]; j++) {
@@ -30,7 +30,7 @@ public class KantineAanbod {
         ArrayList<Artikel> huidigeVoorraad = aanbod.get(productnaam);
         int startHoeveelheid = startVoorraad.get(productnaam);
         int huidigeHoeveelheid = huidigeVoorraad.size();
-        double prijs = prijzen.get(productnaam);
+        String prijs = prijzen.get(productnaam);
         for (int j = huidigeHoeveelheid; j < startHoeveelheid; j++) {
             huidigeVoorraad.add(new Artikel(productnaam, prijs));
         }
@@ -39,14 +39,13 @@ public class KantineAanbod {
 
     // Week 2 opgave 5 a:
     // Waarom zijn de 2 onderstaande methodes private?
-    // De 2 onderstaande methodes zijn private, omdat 
+    // De 2 onderstaande methodes zijn private, omdat je niet wil dat deze methodes in andere klasses worden uitgevoerd.
+    // Deze hebben namelijk effect op de voorraad en dat wil je gecontroleerd houden.
 
     // Week 2 opgave 5 b:
     // Wanneer gebruik je HashMap? en wanneer gebruik je HashSet?
-    // Je gebruikt HashMap als: je zelf key en value namen wil geven. er kunnen meerdere values met dezelfde naam zijn,
-    //                          maar er kan maar een key met een bepaalde naam zijn.
-    // Je gebruikt HashSet als: je een lijst wil hebben waar maar een keer dezelfde items in op kunnen worden opgeslagen.
-    //                          als je bijvoorbeeld 2 keer "hond" er aan toevoegt, zit "hond" maar een keer in de hashset.
+    // Je gebruikt HashMap als: Wanneer je key-value paren wilt opslaan en snelheid belangrijk is
+    // Je gebruikt HashSet als: Je objecten wilt opslaan
 
     /*
      * Private methode om de lijst van artikelen te krijgen op basis van de naam van het artikel.
