@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Dienblad {
@@ -6,14 +7,17 @@ public class Dienblad {
     private Persoon klant;
 
     /**
-     * Constructor
+     * Constructor voor leeg dienblad object
      */
     public Dienblad() {
         artikelen = new ArrayList<Artikel>();
     }
 
 
-
+    /**
+     * Constructor voor een dienblad object
+     * @param Persoon object
+     */
     public Dienblad(Persoon persoon){
         klant = persoon;
         artikelen = new ArrayList<Artikel>();
@@ -45,9 +49,9 @@ public class Dienblad {
      * @return De totaalprijs
      */
     public BigDecimal getTotaalPrijs() {
-        BigDecimal totaalPrijs = new BigDecimal(0.00);
+        BigDecimal totaalPrijs = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
         for (int i = 0; i < artikelen.size(); i++) {
-            BigDecimal prijs = artikelen.get(i).getPrijs();
+            BigDecimal prijs = artikelen.get(i).getPrijs().setScale(2, RoundingMode.HALF_UP);
             totaalPrijs = totaalPrijs.add(prijs);
         }
         return totaalPrijs;

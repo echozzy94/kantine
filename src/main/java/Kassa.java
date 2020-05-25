@@ -56,7 +56,7 @@ public class Kassa {
      * kassa.
      */
     public void resetKassa() {
-        kassaTotaal = new BigDecimal(0.00);
+        kassaTotaal = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
         gepasseerdeArtikelen = 0;
     }
 }

@@ -18,7 +18,7 @@ public class Artikel {
     }
 
     /**
-     * Constructor voor een leeg object
+     * Constructor voor een leeg artikel object
      */
     public Artikel() {
         naam = "";
@@ -43,7 +43,7 @@ public class Artikel {
 
     /**
      * Setter voor variabele prijs
-     * @param prijs
+     * @param prijs in string formaat
      */
     public void setPrijs(String prijs) {
         this.prijs = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);

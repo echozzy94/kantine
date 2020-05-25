@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class Kantine {
 
     private Kassa kassa;
@@ -40,7 +42,7 @@ public class Kantine {
      *
      * @return hoeveelheid geld in kassa
      */
-    public double hoeveelheidGeldInKassa() {
+    public BigDecimal hoeveelheidGeldInKassa() {
        return kassa.hoeveelheidGeldInKassa();
     }
 
