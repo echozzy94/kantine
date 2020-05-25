@@ -43,8 +43,10 @@ public class KantineAanbod {
 
     // Week 2 opgave 5 b:
     // Wanneer gebruik je HashMap? en wanneer gebruik je HashSet?
-    // Je gebruikt HashMap als:
-    // Je gebruikt HashSet als:
+    // Je gebruikt HashMap als: je zelf key en value namen wil geven. er kunnen meerdere values met dezelfde naam zijn,
+    //                          maar er kan maar een key met een bepaalde naam zijn.
+    // Je gebruikt HashSet als: je een lijst wil hebben waar maar een keer dezelfde items in op kunnen worden opgeslagen.
+    //                          als je bijvoorbeeld 2 keer "hond" er aan toevoegt, zit "hond" maar een keer in de hashset.
 
     /*
      * Private methode om de lijst van artikelen te krijgen op basis van de naam van het artikel.
