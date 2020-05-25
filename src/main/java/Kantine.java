@@ -1,3 +1,5 @@
+import java.math.*;
+
 /**
  * De klasse Kantine
  * 
@@ -38,15 +40,17 @@ public class Kantine {
     */
 
     /**
-     * In deze methode wordt een dienblad met artikelen in de kassarij geplaatst
-     * 
-     * @param dienblad
-     * @param artikelnamen
-     * 
-     * KantineSimulatie levert persoon met dienblad
+     * In deze methode wordt een Dienblad gekoppeld.
+     * Maakt Artikelen aan en plaats deze op het dienblad. Tenslotte sluit de Persoon zich aan bij de rij
+     * voor de kassa.
+     * @param dienblad object en een array met artikelnamen
      */
-    public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen){
 
+    public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen){
+        for(int i = 0; i < artikelnamen.length; i++) {
+            Artikel artikel = kantineAanbod.getArtikel(artikelnamen[i]);
+            dienblad.voegToe(artikel);
+        }
         kassarij.sluitAchteraan(dienblad);
     }
 
@@ -55,7 +59,7 @@ public class Kantine {
      */
     public void verwerkRijVoorKassa() {
         while (kassarij.erIsEenRij() == true) {
-            kassarij.eerstePersoonInRij();
+            kassa.rekenAf(kassarij.eerstePersoonInRij());
         }
     }
 
@@ -86,31 +90,6 @@ public class Kantine {
         return kantineAanbod;
     }
 
-    /**
-     * Deze methode telt het geld uit de kassa
-     *
-     * @return hoeveelheid geld in kassa
-     */
-    public BigDecimal hoeveelheidGeldInKassa() {
-       return kassa.hoeveelheidGeldInKassa();
-    }
-
-    /**
-     * Deze methode geeft het aantal gepasseerde artikelen.
-     *
-     * @return het aantal gepasseerde artikelen
-     */
-//    public int aantalArtikelen() {
-//        return kassa.aantalArtikelen();
-//    }
-
-    /**
-     * Deze methode reset de bijgehouden telling van het aantal artikelen en "leegt" de inhoud van
-     * de kassa.
-     */
-//    public void resetKassa() {
-//        kassa.resetKassa();
-//    }
 
     // Week 2 opgave 4 a:
     // de methodes die voorkomen in Kassa.java en Kantine.java zijn:

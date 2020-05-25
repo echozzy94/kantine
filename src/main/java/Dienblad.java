@@ -2,6 +2,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.Iterator;
 
 /**
  * klasse Dienblad
@@ -79,6 +80,14 @@ public class Dienblad {
      */
     public Persoon getKlant() {
         return klant;
+    }
+
+    /**
+     * maakt een iterator voor de artikelen.
+     * @return iteratorr
+     */
+    public Iterator<Artikel> getIterator() {
+        return artikelen.iterator();
     }
 
     /**
