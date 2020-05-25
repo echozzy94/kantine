@@ -1,14 +1,15 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class KassaRij {
 
-    private ArrayList<Dienblad> arrayKassarij;
+    private LinkedList<Dienblad> arrayKassarij;
 
     /**
      * Constructor
      */
     public KassaRij() {
-        arrayKassarij = new ArrayList<Dienblad>();
+        arrayKassarij = new LinkedList<Dienblad>();
     }
     public String getKassaRij(){
         String r = String.valueOf(arrayKassarij.size());
@@ -32,7 +33,7 @@ public class KassaRij {
      */
     public Dienblad eerstePersoonInRij() {
         boolean isErEenRij = erIsEenRij();
-        if (isErEenRij == true) {
+        if (isErEenRij) {
             Dienblad eersteKlant = arrayKassarij.get(0);
             arrayKassarij.remove(0);
             return eersteKlant;

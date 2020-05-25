@@ -1,16 +1,24 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Stack;
+
+/**
+ * klasse Dienblad
+ * 
+ * @author Bryant, Enzo en Rienan
+ * @version 24-5-2020
+ */
 
 public class Dienblad {
-    private ArrayList<Artikel> artikelen;
+    private Stack<Artikel> artikelen;
     private Persoon klant;
 
     /**
      * Constructor voor leeg dienblad object
      */
     public Dienblad() {
-        artikelen = new ArrayList<Artikel>();
+        artikelen = new Stack<Artikel>();
     }
 
 
@@ -20,7 +28,7 @@ public class Dienblad {
      */
     public Dienblad(Persoon persoon){
         klant = persoon;
-        artikelen = new ArrayList<Artikel>();
+        artikelen = new Stack<Artikel>();
     }
 
     /**
