@@ -1,14 +1,15 @@
-import java.math.BigDecimal;
-<<<<<<< HEAD
-
-=======
->>>>>>> b07a0f35288ea46f09804fb0d6577894e52e37f3
+/**
+ * De klasse Kantine
+ * 
+ * @author Bryant, Enzo en Rienan
+ * @version 25-5-2020
+ */
 public class Kantine {
 
     private Kassa kassa;
     private KassaRij kassarij;
     //opgave 5c:
-    private KantineAanbod kantineaanbod;
+    private KantineAanbod kantineAanbod;
 
 
     /**
@@ -41,9 +42,12 @@ public class Kantine {
      * 
      * @param dienblad
      * @param artikelnamen
+     * 
+     * KantineSimulatie levert persoon met dienblad
      */
     public void loopPakSluitAan(Dienblad dienblad, String[] artikelnamen){
-        
+
+        kassarij.sluitAchteraan(dienblad);
     }
 
     /**
@@ -56,18 +60,30 @@ public class Kantine {
     }
 
     // opgave 4b
+    /**
+     * De getter van de kassa
+     * @return kassa 
+     */
     public Kassa getKassa(){
         return kassa;
     }
 
     // opgave 5c
-    public void setKantineaanbod(KantineAanbod kantineaanbod){
-        this.kantineaanbod = kantineaanbod;
+    /**
+     * Dit is de setter van kantineAanbod
+     * @param kantineaanbod
+     */
+    public void setKantineaanbod(KantineAanbod kantineAanbod){
+        this.kantineAanbod = kantineAanbod;
     }
 
     // opgave 5c
-    public KantineAanbod getKantineaanbod(){
-        return this.kantineaanbod;
+    /**
+     * Dit is de getter van kantineaanbod
+     * @return kantineaanbod
+     */
+    public KantineAanbod getKantineAanbod(){
+        return kantineAanbod;
     }
 
     /**
@@ -75,15 +91,9 @@ public class Kantine {
      *
      * @return hoeveelheid geld in kassa
      */
-<<<<<<< HEAD
     public BigDecimal hoeveelheidGeldInKassa() {
        return kassa.hoeveelheidGeldInKassa();
     }
-=======
-//    public BigDecimal hoeveelheidGeldInKassa() {
-//       return kassa.hoeveelheidGeldInKassa();
-//    }
->>>>>>> b07a0f35288ea46f09804fb0d6577894e52e37f3
 
     /**
      * Deze methode geeft het aantal gepasseerde artikelen.
@@ -104,5 +114,5 @@ public class Kantine {
 
     // Week 2 opgave 4 a:
     // de methodes die voorkomen in Kassa.java en Kantine.java zijn:
-    // aantalArtikelen en hoeveelheidGeldInKassa.
+    // aantalArtikelen, hoeveelheidGeldInKassa en resetKassa.
 }
