@@ -26,7 +26,7 @@ public class KantineAanbod {
         }
     }
 
-    private void vulVoorraadAan(String productnaam) {
+    public void vulVoorraadAan(String productnaam) {
         ArrayList<Artikel> huidigeVoorraad = aanbod.get(productnaam);
         int startHoeveelheid = startVoorraad.get(productnaam);
         int huidigeHoeveelheid = huidigeVoorraad.size();
