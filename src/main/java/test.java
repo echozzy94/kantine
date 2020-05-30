@@ -17,6 +17,7 @@ private Dienblad dienblad2;
 private Dienblad dienblad3;
 private KassaRij kassarij;
 private Kassa kassa1;
+private Administratie admin;
 
 
 public static void main(String[] args) {
@@ -100,6 +101,12 @@ public static void main(String[] args) {
     String c2 = String.valueOf(kassa1.hoeveelheidGeldInKassa());
     System.out.println("Artikelen " +s2);
     System.out.println("Geld in kassa: " + c2);
+    // Testen van administratie
+    Administratie admin = new Administratie();
+    int[] aantal = new int[] {45, 56, 34, 39, 40, 31};
+    double[] omzet = new double[] {567.70, 498.25, 458.90};
+    System.out.println(admin.berekenGemiddeldAantal(aantal));
+    System.out.println(admin.berekenGemiddeldeOmzet(omzet));
 
 
 

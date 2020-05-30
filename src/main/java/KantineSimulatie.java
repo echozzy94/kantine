@@ -103,9 +103,9 @@ public class KantineSimulatie {
         // for lus voor dagen
 
         for(int i = 0; i < dagen; i++) {
-
+            int eindedag = i;
             // bedenk hoeveel personen vandaag binnen lopen
-             int aantalpersonen = getRandomValue(1, 10);
+             int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
              
 
             // laat de personen maar komen...
@@ -116,7 +116,7 @@ public class KantineSimulatie {
 
                 Persoon persoon = new Persoon();
                 Dienblad dienblad = new Dienblad(persoon);
-                int aantalartikelen = getRandomValue(1, 4);
+                int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
                 
                 
                 // genereer de "artikelnummers", dit zijn indexen
@@ -127,8 +127,8 @@ public class KantineSimulatie {
                 // de indexen hierboven
                 String[] artikelen = geefArtikelNamen(tepakken);
 
-                // loop de kantine binnen, pak de gewenste
-                // artikelen, sluit aan
+                // Check of de tepakken artikelen van het dienblad op voorraad zijn, zo niet dan voorraad aanvullen
+                // loop de kantine binnen, pak de gewenste artikelen, sluit aan in de rij
                 for (int u = 0; u < artikelen.length; u++){
                     if (kantineaanbod.getArtikel(artikelen[u]) == null){
                         kantineaanbod.vulVoorraadAan(artikelen[u]);
@@ -142,12 +142,13 @@ public class KantineSimulatie {
             kantine.verwerkRijVoorKassa();
             // druk de dagtotalen af en hoeveel personen binnen zijn gekomen
             // toon dagtotalen (artikelen en geld in kassa)
-            System.out.println("Artikelen in kassa: " + kantine.getKassa().aantalArtikelen());
-            System.out.println("Geld in kassa: " + kantine.getKassa().hoeveelheidGeldInKassa());
-            System.out.println("Aantal gepasseerde personen: " + aantalpersonen);
+            System.out.println("Artikelen afgerekend door kassa: " + kantine.getKassa().aantalArtikelen());
+            System.out.println("Geld in kassa vandaag: " + kantine.getKassa().hoeveelheidGeldInKassa());
+            System.out.println("Aantal gepasseerde personen vandaag: " + aantalpersonen);
 
             // reset de kassa voor de volgende dag
             kantine.getKassa().resetKassa();
+            System.out.println("Einde dag: " + (eindedag + 1) + "\n");
 
         }
     }
