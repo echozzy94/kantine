@@ -4,11 +4,18 @@ public class KantineMedewerker extends Persoon {
    private int medewerkersNummer;
    private boolean magAchterKassa;
 
-   /**
-    * Constructor:
-    * Initialiseer de velden voor een persoon
-    * @params bsn, voornaam, achternaam, geboorteDag, geboorteMaand, geboorteJaar, geslacht, medewerkersNummer, magAchterKassa
-    */
+    /**
+     * Constructor voor een kantinemedewerker
+     * @param bsn
+     * @param voornaam
+     * @param achternaam
+     * @param dag
+     * @param maand
+     * @param jaar
+     * @param geslacht
+     * @param medewerkersNummer
+     * @param magAchterKassa
+     */
    public KantineMedewerker(int bsn, String voornaam, String achternaam, int dag, int maand, int jaar, char geslacht, int medewerkersNummer, boolean magAchterKassa)
    {
        super(bsn, voornaam,  achternaam,  geslacht, dag, maand, jaar);

@@ -3,8 +3,17 @@ public class Student extends Persoon
     private String studieRichting;
     private String studentNummer;
 
-    /*
-     * Constructor voor de subklasse student
+    /**
+     * Constructor voor een student
+     * @param studentNummer
+     * @param studieRichting
+     * @param voornaam
+     * @param achternaam
+     * @param geboortedag
+     * @param geboortemaand
+     * @param geboortejaar
+     * @param geslacht
+     * @param bsn
      */
       public Student(String studentNummer, String studieRichting, String voornaam, String achternaam, int geboortedag, int geboortemaand, int geboortejaar, char geslacht, int bsn)
     {
@@ -12,6 +21,11 @@ public class Student extends Persoon
         this.studentNummer = studentNummer;
         this.studieRichting = studieRichting;
     }
+
+    /**
+     * Parameterloze constructor om mee te testen
+     *
+     */
     public Student()
     {
         super();
@@ -20,6 +34,10 @@ public class Student extends Persoon
     }
 
 
+    /**
+     * ToString methode voor output
+     * @return
+     */
     @Override
     public String toString() {
         return "{" + "Student: " +
@@ -29,24 +47,26 @@ public class Student extends Persoon
     }
 
 
-    /*
-     * Methode voor het aanpassen van StudentNummer
+    /**
+     * Setter voor het studentnummer
+     * @param studentNummer Het studentnummber van de student
      */
     public void setstudentNummer(String studentNummer)
     {
         this.studentNummer = studentNummer;
     }
 
-    /*
-     * Methode voor het aanpassen van StudieRichting
+    /**
+     * Setter voor de studierichting
+     * @param studieRichting De studierichting van de student
      */
     public void setStudieRichting(String studieRichting)
     {
         this.studieRichting = studieRichting;
     }
 
-    /*
-     *  Methode voor het verkrijgen van het studentNummer van de student
+    /**
+     *  Getter voor het studentnummer
      *  @return studentnummer
      */
     public String getStudentNummer()
@@ -55,7 +75,7 @@ public class Student extends Persoon
     }
 
     /**
-     * Methode voor het verkrijgen van de studie richting van de student
+     * Getter voor de studierichting
      * @return studierichting
      */
     public String getStudieRichting()

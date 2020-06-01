@@ -121,20 +121,23 @@ public class KantineSimulatie {
              int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
              
             // laat de personen maar komen... 
-            
+
+            // Berekent voor elke persoon een random getal, dit getal zorgt vervolgens weer voor een kans op de 3 verschillende soorten klanten
+            // Dit komt terug in de if statements, hier vul je ook de kans in.
+
             for (int j = 0; j < aantalpersonen; j++) {
                 int randompersoon = getRandomValue(1, 100);
-            
-                // maak persoon en dienblad aan, koppel ze
-                // en bedenk hoeveel artikelen worden gepakt
-                
 
                 if (randompersoon <= 89){
+                    // maak persoon en dienblad aan, koppel ze
                 Student student = new Student();
-                //System.out.println(student.toString());
+                //System.out.println(student.toString()); WEGGECOMMENT OMDAT HET ONOVERZICHTELIJK WAS
                 Dienblad dienblad = new Dienblad(student);
+                // Bedenk hoeveel artikelen worden gepakt
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
+                // genereer de "artikelnummers", dit zijn indexen van de artikelnamen
                 int[] tepakken = getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
+                // vind de artikelnamen op basis van
                 String[] artikelen = geefArtikelNamen(tepakken);
                 for (int u = 0; u < artikelen.length; u++){
                     if (kantineaanbod.getArtikel(artikelen[u]) == null){
@@ -145,11 +148,12 @@ public class KantineSimulatie {
                 }  
                 else if (randompersoon > 89 && randompersoon <= 99){
                 Docent docent = new Docent();
-                //System.out.println(docent.toString());
+                //System.out.println(docent.toString()); WEGGECOMMENT OMDAT HET ONOVERZICHTELIJK WAS
                 Dienblad dienblad = new Dienblad(docent);
                 int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
                 int[] tepakken = getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
                 String[] artikelen = geefArtikelNamen(tepakken);
+                // Check of de tepakken artikelen van het dienblad op voorraad zijn, zo niet dan voorraad aanvullen
                 for (int u = 0; u < artikelen.length; u++){
                     if (kantineaanbod.getArtikel(artikelen[u]) == null){
                         kantineaanbod.vulVoorraadAan(artikelen[u]);
@@ -159,7 +163,7 @@ public class KantineSimulatie {
                 }
                  else {
                     KantineMedewerker kantinemedewerker = new KantineMedewerker();
-                    //System.out.println(kantinemedewerker.toString());
+                    //System.out.println(kantinemedewerker.toString()); WEGGECOMMENT OMDAT HET ONOVERZICHTELIJK WAS
                     Dienblad dienblad = new Dienblad(kantinemedewerker);
                     int aantalartikelen = getRandomValue(MIN_ARTIKELEN_PER_PERSOON, MAX_ARTIKELEN_PER_PERSOON);
                     int[] tepakken = getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
@@ -169,6 +173,7 @@ public class KantineSimulatie {
                         kantineaanbod.vulVoorraadAan(artikelen[u]);
                     } 
                 }
+                // loop de kantine binnen, pak de gewenste artikelen, sluit aan in de rij
                 kantine.loopPakSluitAan(dienblad, artikelen);
                 }
             }
@@ -207,6 +212,7 @@ public class KantineSimulatie {
             System.out.println("Einde dag: " + (eindedag + 1) + "\n");
 
         }
+        // Output voor de 3 methodes in de Administratie klasse
         double[] aantalarrayterug = administratie.berekenDagOmzet(omzetarray);
         for (int i = 0; i < aantalarrayterug.length; i++){
             System.out.println("Dagomzet: " + aantalarrayterug[i]);
