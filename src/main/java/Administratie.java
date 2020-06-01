@@ -14,14 +14,14 @@ private static final int DAYS_IN_WEEK = 7;
      * @return het gemiddelde
      */
     public static BigDecimal berekenGemiddeldAantal(int[] aantal) {
-        BigDecimal totaal = new BigDecimal("0.0000").setScale(4, RoundingMode.HALF_UP);
+        BigDecimal totaal = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
         BigDecimal aantalLength = new BigDecimal(aantal.length).setScale(2, RoundingMode.HALF_UP);
 
         if (aantal.length == 0){
             return totaal;
         } else {
             for (int i = 0; i < aantal.length; i++){
-                BigDecimal waarde = new BigDecimal(aantal[i]).setScale(4, RoundingMode.HALF_UP);
+                BigDecimal waarde = new BigDecimal(aantal[i]).setScale(2, RoundingMode.HALF_UP);
                 totaal = totaal.add(waarde);
             }
         }
@@ -35,14 +35,14 @@ private static final int DAYS_IN_WEEK = 7;
      * @return het gemiddelde
      */
     public static BigDecimal berekenGemiddeldeOmzet(double[] omzet) {
-        BigDecimal omzetTotaal = new BigDecimal("0.0000").setScale(4, RoundingMode.HALF_UP);
+        BigDecimal omzetTotaal = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
         BigDecimal omzetLength = new BigDecimal(omzet.length).setScale(2, RoundingMode.HALF_UP);
 
         if (omzet.length == 0){
             return omzetTotaal;
         } else {
             for (int i = 0; i < omzet.length; i++){
-                BigDecimal waarde = new BigDecimal(omzet[i]).setScale(4, RoundingMode.HALF_UP);
+                BigDecimal waarde = new BigDecimal(omzet[i]).setScale(2, RoundingMode.HALF_UP);
                 omzetTotaal = omzetTotaal.add(waarde);
             }
         }
