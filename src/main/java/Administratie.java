@@ -77,13 +77,14 @@ private static final int DAYS_IN_WEEK = 7;
         double[] temp = new double[DAYS_IN_WEEK];
         for (int i=0; i < DAYS_IN_WEEK; i++){
           int j = 0;
-          while ((i+DAYS_IN_WEEK*j) < omzet.length) {
-              temp[i] += omzet[i+DAYS_IN_WEEK*j];
-              j++;
+          // i + 7 * j, kleiner dan omzet.length
+          while ((i+DAYS_IN_WEEK*j) < omzet.length) { //omzet.length is de array die je terug krijgt vanuit de simulatie en geeft aan voor hoeveel dagen de simulatie heeft gedraaid
+              temp[i] += omzet[i+DAYS_IN_WEEK*j];  // i is dag index, days in week is statisch 7, j verspringt de week.
+              j++; //week naar voren.
 
             }
         }
-        return temp;
+        return temp; //return de array
     }
 
 
