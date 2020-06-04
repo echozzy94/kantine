@@ -124,7 +124,6 @@ public class KantineSimulatie {
              int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
              
             // laat de personen maar komen... 
-
             // Berekent voor elke persoon een random getal, dit getal zorgt vervolgens weer voor een kans op de 3 verschillende soorten klanten
             // Gooit de personen in een arraylist adhv het random gegenereerde type persoon
             // Dit komt terug in de if statements, hier vul je ook de kans in.
@@ -143,6 +142,7 @@ public class KantineSimulatie {
                     personenlijst.add(persoon);
                 }
             } 
+            //Voor alle aangemaakt personen de volgende stappen uitvoeren
             for (int y= 0; y < personenlijst.size(); y++){
                 System.out.println(personenlijst.get(y).toString());
                 Dienblad dienblad = new Dienblad(personenlijst.get(y));
