@@ -25,12 +25,20 @@ public class Kassa {
      */
     public void rekenAf(Dienblad dienblad) {
         Iterator<Artikel> artikelen = dienblad.getIterator();
+        double klanttebetalen = 0.00;
         while(artikelen.hasNext()){
             Artikel artikel = artikelen.next();
             BigDecimal totalePrijs = artikel.getPrijs();
+            klanttebetalen += totalePrijs.doubleValue();
             kassaTotaal = kassaTotaal.add(totalePrijs);
             gepasseerdeArtikelen++;
         } 
+        if (dienblad.getKlant().betaal(klanttebetalen) == true){
+        dienblad.getKlant().betaal(klanttebetalen);
+        System.out.println("Betaling gelukt");
+        } else {
+            System.out.println("Betaling niet gelukt");
+        }
     }
 
     /**

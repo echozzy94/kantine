@@ -1,13 +1,11 @@
-
-
-
-public class Persoon {
+public class Persoon extends Betaalwijze {
     private int BSN;
     private String voorNaam;
     private String achterNaam;
     private Datum geboorteDatum;
     private char geslacht;
     private Dienblad dienblad;
+    private Betaalwijze betaalwijze;
 
     /**
      * Constructor
@@ -38,6 +36,23 @@ public class Persoon {
         achterNaam = "";
         geboorteDatum = new Datum();
         geslacht = 'O';
+    }
+
+    //Betalen
+    //@param bedrag wat betaald moet worden
+    public boolean betaal(double tebetalen){
+         return betaalwijze.betaal(tebetalen);    
+    }
+
+    //Get betaalwijze
+    public Betaalwijze getBetaalwijze() {
+        return this.betaalwijze;
+    }
+
+    //Set betaalwijze
+    //@ param Pinpas of Contant
+    public void setBetaalwijze(Betaalwijze betaalwijze) {
+        this.betaalwijze = betaalwijze;
     }
 
     /**
