@@ -30,15 +30,14 @@ public class Kassa {
             Artikel artikel = artikelen.next();
             BigDecimal totalePrijs = artikel.getPrijs();
             klanttebetalen += totalePrijs.doubleValue();
+            if (dienblad.getKlant().betaal(klanttebetalen) == true){
             kassaTotaal = kassaTotaal.add(totalePrijs);
             gepasseerdeArtikelen++;
-        } 
-        if (dienblad.getKlant().betaal(klanttebetalen) == true){
-        dienblad.getKlant().betaal(klanttebetalen);
-        System.out.println("Betaling gelukt");
         } else {
-            System.out.println("Betaling niet gelukt");
+            //System.out.println("Betaling niet gelukt" + nietgelukt);
         }
+    }
+       
     }
 
     /**

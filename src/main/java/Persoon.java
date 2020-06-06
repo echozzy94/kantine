@@ -1,4 +1,4 @@
-public class Persoon extends Betaalwijze {
+public class Persoon {
     private int BSN;
     private String voorNaam;
     private String achterNaam;
