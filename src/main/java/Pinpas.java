@@ -1,22 +1,24 @@
+import java.math.*;
+
 public class Pinpas extends Betaalwijze {
 
-    private double kredietlimiet;
+    private BigDecimal kredietlimiet;
 
     /**
      * Methode om kredietlimiet te zetten
      *
      * @param kredietlimiet
      */
-    public void setKredietLimiet(double kredietlimiet) {
+    public void setKredietLimiet(BigDecimal kredietlimiet) {
         this.kredietlimiet = kredietlimiet;
     }
 
     /**
      * Methode om betaling af te handelen
      */
-    public boolean betaal(double tebetalen) {
+    public boolean betaal(BigDecimal tebetalen) {
         boolean check = false;
-        if ((this.saldo + kredietlimiet <= tebetalen)) {
+        if ((this.saldo.add(kredietlimiet).compareTo(tebetalen) == 1)) {
             check = true;
         } else {
             check = false;

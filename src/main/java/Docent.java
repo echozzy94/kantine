@@ -1,7 +1,10 @@
-public class Docent extends Persoon{
+import java.math.*;
+
+public class Docent extends Persoon implements KortingskaartHouder{
 
     private String vierlettercode;
     private String afdeling;
+    private final BigDecimal kortingspercentage = new BigDecimal(0.25);
 
    //b. Waarom moet een super aanroep in de constructor altijd bovenaan staan?
    // Omdat er eerst een persoon object moet worden gemaakt voor een subklasse kan worden geinitialiseert
@@ -81,4 +84,19 @@ public class Docent extends Persoon{
         } else 
         this.vierlettercode = vierlettercode;
     }
+
+    public BigDecimal geefKortingsPercentage(){
+        return kortingspercentage;
+   }
+
+   public boolean heeftMaximum(){
+       return true;
+   }
+
+   public BigDecimal geefMaximum(){
+       return new BigDecimal(1.00);
+   }
+
+
+
 }

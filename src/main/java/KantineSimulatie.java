@@ -147,14 +147,16 @@ public class KantineSimulatie {
             for (int k = 0; k < personenlijst.size(); k++) {
                 Betaalwijze betaalwijze;
                 int randombetaalwijze = getRandomValue(1, 2);
+                int kredietlimiet = getRandomValue(0, 100);
+                int saldo = getRandomValue(0, 100);
                 Persoon persoon = personenlijst.get(k);
                 if (randombetaalwijze == 1) {
                     betaalwijze = new Pinpas();
-                    ((Pinpas) betaalwijze).setKredietLimiet(getRandomValue(0, 100));
-                    ((Pinpas) betaalwijze).setSaldo(getRandomValue(0, 50));
+                    ((Pinpas) betaalwijze).setKredietLimiet(new BigDecimal(kredietlimiet));
+                    ((Pinpas) betaalwijze).setSaldo(new BigDecimal(saldo));
                 } else {
                     betaalwijze = new Contant();
-                    ((Contant) betaalwijze).setSaldo(getRandomValue(0, 100));
+                    ((Contant) betaalwijze).setSaldo(new BigDecimal(saldo));
                 }
                 persoon.setBetaalwijze(betaalwijze);
                 //System.out.println(persoon.getBetaalwijze().saldo);

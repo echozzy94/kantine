@@ -1,8 +1,11 @@
-public class KantineMedewerker extends Persoon {
+import java.math.*;
+
+public class KantineMedewerker extends Persoon implements KortingskaartHouder{
     
    // instance variables - replace the example below with your own
    private int medewerkersNummer;
    private boolean magAchterKassa;
+   private final BigDecimal kortingspercentage = new BigDecimal(0.35);
 
     /**
      * Constructor voor een kantinemedewerker
@@ -76,6 +79,18 @@ public class KantineMedewerker extends Persoon {
    public void setMagAchterKassa(boolean magAchterKassa)
    {
        this.magAchterKassa = magAchterKassa;
-   }  
+   } 
+
+   public BigDecimal geefKortingsPercentage(){
+        return kortingspercentage;
+   }
+
+   public boolean heeftMaximum(){
+       return false;
+   }
+
+   public BigDecimal geefMaximum(){
+       return new BigDecimal(0.00);
+   }
 
 }

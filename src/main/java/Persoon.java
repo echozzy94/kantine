@@ -1,3 +1,5 @@
+import java.math.*;
+
 public class Persoon {
     private int BSN;
     private String voorNaam;
@@ -40,8 +42,8 @@ public class Persoon {
 
     //Betalen
     //@param bedrag wat betaald moet worden
-    public boolean betaal(double tebetalen){
-         return betaalwijze.betaal(tebetalen);    
+    public boolean betaal(BigDecimal tebetalen){
+         return betaalwijze.betaal(tebetalen.setScale(2, RoundingMode.HALF_UP));    
     }
 
     //Get betaalwijze
