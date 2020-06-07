@@ -1,0 +1,62 @@
+/////OPDRACHT 3////
+a. Kun je een instantie maken van een interface via new? Leg uit waarom het logisch is dat het wel
+of niet kan.
+
+Nee, een interface is simpelweg een lijst waarin je definieert wat een klasse sowieso moet hebben volgens jou.
+
+b. Herhaal de vorige vraag met abstracte klassen.
+
+Nee, een abstracte klasse is een blueprint voor een echte klasse, hierin wil je dus geen instanties van objecten maken.
+
+c. Kan een klasse meerdere klassen overerven?
+
+Ja, je kan erven als de parentclass ookal extend van een andere klasse, je kan niet 2x extends gebruiken in één klasse.
+
+d. Kan een klasse meerdere interfaces implementeren?
+
+Ja, dit kan. 
+
+e. Kan een klasse tegelijk een klasse overerven en interfaces implementeren?
+
+Ja dit kan. 
+
+f. Klopt de stelling dat elke methode in een interface abstract is? Licht je antwoord toe.
+
+Ja dat klopt, want in een interface kun je geen body voor een methode schrijven.
+
+g. Moet een klasse abstract zijn als minstens één methode abstract is? Licht je antwoord toe.
+
+Ja, want je kunt geen abstacte methode in een normale klasse gebruiken.  
+
+h. Leg het begrip polymorfisme van klassen uit en geef twee voorbeelden (één met abstracte klassen en één met interfaces).
+
+Polymorfisme, betekent dat een klasse meerde vormen kan aannemen. Een abstracte klasse kan bijvoorbeeld de methode sound hebben, en iedere normale klasse die deze abstracte klasse extend. Heeft dus een eigen methode sound().
+Als we een parent class Dier hebben, en daar een Kat en een Hond voor extenden, hebben zij beiden de methode sound() nodig. Echter verschilt het per dier welk geluid wordt gemaakt. In een abstracte klasse, kan alvast een methode worden geschreven
+die kan worden doorgegeven aan de subklasse, zo kun je het geluid al definiëren in de abstracte klasse voor elke subklasse. Bij een interface moet je persé voor elke subklasse een eigen implementatie in de subklasse zelf maken wanneer je de interface 
+implementeert.
+
+
+
+////OPDRACHT 4////
+a. Kan een klasse abstract zijn als geen enkele methode abstract is in die klasse? Probeer het eens
+uit. Leg waarom het logisch is dat dit wel of niet kan. 
+
+Dit kan niet, tenzij je de methode static maakt. Het is logisch omdat je geen object aanmaakt waarmee je kunt werken, en zonder object kun je ook niet de bijbehorende methodes gebruiken.
+ 
+b. Moet een subklasse van een abstracte klasse altijd alle abstracte methodes implementeren? Leg
+uit waarom het logisch is dat dit wel of niet kan.
+
+Nee, maar als je niet abstracte methodes wilt implementeren dan moet je de subklasse ook abstract maken. 
+
+c. Als een klasse niet alle methoden van een interface implementeert kun je iets doen om een
+(compiler)fout te voorkomen. Wat? Waarom is de oplossing logisch?
+
+Als je methodes override, dan gaat de subklasse niet bij de parentklasse langs maar word het direct uit de subklasse uitgevoerd.
+
+d. Leg uit waarom het logisch is dat een instantie variabele niet abstract kan zijn.
+
+Omdat een instantie variabele gekoppeld is aan een object, die je niet kan instantiëren vanuit een abstracte klasse.
+e. (Uitdaging) Zoek uit wat een final methode is. Leg daarna uit waarom het logisch is dat een
+methode niet tegelijkertijd abstract en final kan zijn
+
+Een final methode is iets wat vast staat en dus ook niet override kan worden door een subclass. Dit is ook waarom het niet tegelijk een abstract en een final kan zijn. 
