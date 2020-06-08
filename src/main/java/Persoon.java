@@ -42,8 +42,8 @@ public class Persoon {
 
     //Betalen
     //@param bedrag wat betaald moet worden
-    public boolean betaal(BigDecimal tebetalen){
-         return betaalwijze.betaal(tebetalen.setScale(2, RoundingMode.HALF_UP));    
+    public void betaal(BigDecimal tebetalen) throws TeWeinigGeldException{
+         betaalwijze.betaal(tebetalen);    
     }
 
     //Get betaalwijze

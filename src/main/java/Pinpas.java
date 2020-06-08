@@ -16,13 +16,12 @@ public class Pinpas extends Betaalwijze {
     /**
      * Methode om betaling af te handelen
      */
-    public boolean betaal(BigDecimal tebetalen) {
-        boolean check = false;
+    public void betaal(BigDecimal tebetalen) throws TeWeinigGeldException {
         if ((this.saldo.add(kredietlimiet).compareTo(tebetalen) == 1)) {
-            check = true;
+            
         } else {
-            check = false;
+            throw new TeWeinigGeldException("heeft niet genoeg salso op de pinpas om te betalen.");
         }
-        return check;
     }
 }
+
