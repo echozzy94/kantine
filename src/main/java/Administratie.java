@@ -1,5 +1,7 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
+
 
 public class Administratie {
 private static final int DAYS_IN_WEEK = 7;
@@ -73,7 +75,7 @@ private static final int DAYS_IN_WEEK = 7;
      * @return array (7 elementen) met dagomzetten
      */
 
-    public static double[] berekenDagOmzet(double[] omzet) {
+    public static ArrayList berekenDagOmzet(double[] omzet) {
         double[] temp = new double[DAYS_IN_WEEK];
         for (int i=0; i < DAYS_IN_WEEK; i++){
           int j = 0;
@@ -84,7 +86,13 @@ private static final int DAYS_IN_WEEK = 7;
 
             }
         }
-        return temp; //return de array
+        ArrayList<BigDecimal> omzetbd = new ArrayList<BigDecimal>();
+        for (int i = 0; i < temp.length; i++){
+            BigDecimal waarde = new BigDecimal(temp[i]);
+            waarde.setScale(2, RoundingMode.HALF_UP);
+            omzetbd.add(waarde.setScale(2, RoundingMode.HALF_UP));
+        }
+        return omzetbd; //return de array
     }
 
 

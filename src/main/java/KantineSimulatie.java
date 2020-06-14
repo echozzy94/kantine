@@ -195,9 +195,9 @@ public class KantineSimulatie {
 
         }
         // Output voor de 3 methodes in de Administratie klasse
-        double[] aantalarrayterug = administratie.berekenDagOmzet(omzetarray);
-        for (int i = 0; i < aantalarrayterug.length; i++) {
-            System.out.println("Dagomzet: " + aantalarrayterug[i]);
+        ArrayList aantalarrayterug = administratie.berekenDagOmzet(omzetarray);
+        for (int i = 0; i < aantalarrayterug.size(); i++) {
+            System.out.println("Dagomzet: " + aantalarrayterug.get(i));
         }
         System.out.println("Gemiddeld aantal artikelen: " + administratie.berekenGemiddeldAantal(aantalarray));
         System.out.println("Gemiddelde omzet: " + administratie.berekenGemiddeldeOmzet(omzetarray));
