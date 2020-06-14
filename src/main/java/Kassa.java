@@ -29,36 +29,27 @@ public class Kassa {
         BigDecimal klanttebetalen = new BigDecimal(0.00).setScale(2, RoundingMode.HALF_UP);
         while (artikelen.hasNext()) {
             Artikel artikel = artikelen.next();
-            BigDecimal totalePrijs = artikel.getPrijs();
-            klanttebetalen.add(totalePrijs);
-            if (dienblad.getKlant() instanceof KantineMedewerker) {
-                KantineMedewerker j = new KantineMedewerker();
-                KantineMedewerker k = (KantineMedewerker) j;
-                BigDecimal kortingsbedrag = totalePrijs.multiply(k.geefKortingsPercentage().setScale(2, RoundingMode.HALF_UP));
-                totalePrijs = totalePrijs.subtract(kortingsbedrag.setScale(2, RoundingMode.HALF_UP));
-            }
-            if (dienblad.getKlant() instanceof Docent) {
-                Docent d = new Docent();
-                Docent e = (Docent) d;
-                BigDecimal kortingsbedrag = totalePrijs.multiply(e.geefKortingsPercentage().setScale(2, RoundingMode.HALF_UP));
-                if (kortingsbedrag.compareTo(e.geefMaximum()) == 1) {
-                    kortingsbedrag = new BigDecimal(1.00);
-                    totalePrijs = totalePrijs.subtract(kortingsbedrag.setScale(2, RoundingMode.HALF_UP));
-                } else {
-                    totalePrijs = totalePrijs.subtract(kortingsbedrag.setScale(2, RoundingMode.HALF_UP));
-                }
-            }
+            BigDecimal prijsVanArtikel = artikel.getPrijs();
+            klanttebetalen = klanttebetalen.add(prijsVanArtikel);
+            if (dienblad.getKlant() instanceof KortingskaartHouder) {
+                BigDecimal kortingsbedrag = klanttebetalen.multiply(((KortingskaartHouder)dienblad.getKlant()).geefKortingsPercentage().setScale(2, RoundingMode.HALF_UP));
+                if(((KortingskaartHouder)dienblad.getKlant()).heeftMaximum() == true && kortingsbedrag.compareTo(((KortingskaartHouder)dienblad.getKlant()).geefMaximum()) == 1) {
+                    kortingsbedrag = ((KortingskaartHouder)dienblad.getKlant()).geefMaximum();
+               }
+               klanttebetalen = klanttebetalen.subtract(kortingsbedrag).setScale(2, RoundingMode.HALF_UP);
+        }
+    }
             try {
-                dienblad.getKlant().betaal(totalePrijs);
-                kassaTotaal = kassaTotaal.add(totalePrijs);
+                dienblad.getKlant().betaal(klanttebetalen);
+                kassaTotaal = kassaTotaal.add(klanttebetalen);
                 gepasseerdeArtikelen++;
-                ;
+                
             } catch (TeWeinigGeldException e) {
                 System.out.println(dienblad.getKlant().toString() + " " + e.getErrorMelding());
             }
 
         }
-    }
+    
 
     /**
      * Geeft het aantal artikelen dat de kassa heeft gepasseerd, vanaf het moment

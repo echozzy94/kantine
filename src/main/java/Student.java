@@ -15,7 +15,7 @@ public class Student extends Persoon
      * @param geslacht
      * @param bsn
      */
-      public Student(String studentNummer, String studieRichting, String voornaam, String achternaam, int geboortedag, int geboortemaand, int geboortejaar, char geslacht, int bsn)
+      public Student(int bsn, String voornaam, String achternaam, int geboortedag, int geboortemaand, int geboortejaar, char geslacht, String studentNummer, String studieRichting)
     {
         super(bsn, voornaam, achternaam, geslacht, geboortedag, geboortemaand, geboortejaar);
         this.studentNummer = studentNummer;

@@ -209,6 +209,6 @@ public class KantineSimulatie {
     public static void main(String[] args) {
         KantineSimulatie simulatie = new KantineSimulatie();
 
-        simulatie.simuleer(8);
+        simulatie.simuleer(16);
     }
 }

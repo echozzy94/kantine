@@ -2,6 +2,7 @@ import java.math.BigDecimal;
 
 public interface KortingskaartHouder {
 
+
     /**
      * Methode om kortingspercentage op te vragen
      */

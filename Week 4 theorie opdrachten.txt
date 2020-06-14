@@ -52,6 +52,7 @@ c. Als een klasse niet alle methoden van een interface implementeert kun je iets
 (compiler)fout te voorkomen. Wat? Waarom is de oplossing logisch?
 
 Als je methodes override, dan gaat de subklasse niet bij de parentklasse langs maar word het direct uit de subklasse uitgevoerd.
+Klasse abstract maken
 
 d. Leg uit waarom het logisch is dat een instantie variabele niet abstract kan zijn.
 

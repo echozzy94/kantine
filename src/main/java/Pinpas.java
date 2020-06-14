@@ -18,6 +18,11 @@ public class Pinpas extends Betaalwijze {
      */
     public void betaal(BigDecimal tebetalen) throws TeWeinigGeldException {
         if ((this.saldo.add(kredietlimiet).compareTo(tebetalen) == 1)) {
+            this.saldo = this.saldo.subtract(tebetalen);
+            if(this.saldo.compareTo(new BigDecimal(0.00)) == -1){
+                this.kredietlimiet = this.kredietlimiet.subtract(saldo);
+                this.saldo = new BigDecimal(0.00);
+            }
             
         } else {
             throw new TeWeinigGeldException("heeft niet genoeg salso op de pinpas om te betalen.");

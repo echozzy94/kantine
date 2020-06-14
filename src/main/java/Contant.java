@@ -9,7 +9,7 @@ public class Contant extends Betaalwijze {
         
         BigDecimal nul = new BigDecimal(0.00);
         if ((this.saldo.subtract(tebetalen).compareTo(nul) == 1)) {
-            return;
+            this.saldo = this.saldo.subtract(tebetalen);
             } 
             else {
             throw new TeWeinigGeldException("Klant heeft niet genoeg geld om te betalen.");

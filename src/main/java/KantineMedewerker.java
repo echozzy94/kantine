@@ -93,4 +93,5 @@ public class KantineMedewerker extends Persoon implements KortingskaartHouder{
        return new BigDecimal(0.00);
    }
 
+
 }
