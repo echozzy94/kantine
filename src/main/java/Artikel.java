@@ -11,8 +11,8 @@ public class Artikel {
         return this.artikelkorting;
     }
 
-    public void setArtikelkorting(String artikelkorting) {
-        this.artikelkorting = new BigDecimal(artikelkorting).setScale(2, RoundingMode.HALF_UP);
+    public void setArtikelkorting() {
+        this.artikelkorting = new BigDecimal("0.20").setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
@@ -34,6 +34,7 @@ public class Artikel {
     public Artikel(String naam, String prijs) {
         this.naam = naam;
         this.prijs = new BigDecimal(prijs).setScale(2, RoundingMode.HALF_UP);
+        artikelkorting = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
@@ -42,6 +43,7 @@ public class Artikel {
     public Artikel() {
         naam = "";
         prijs = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
+        artikelkorting = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
@@ -65,7 +67,7 @@ public class Artikel {
      * @param prijs in string formaat
      */
     public void setPrijs(String prijs) {
-        this.prijs = new BigDecimal(prijs).setScale(2, RoundingMode.HALF_UP);
+        this.prijs = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
     }
 
     /**

@@ -1,15 +1,15 @@
 import java.util.*;
 import java.math.*;
 
-import javax.persistence.Persistence;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+//import javax.persistence.Persistence;
+//import javax.persistence.EntityManager;
+//import javax.persistence.EntityManagerFactory;
 
 public class KantineSimulatie {
 
     //database
-    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("KantineSimulatie");
-    private EntityManager manager;
+    //private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("KantineSimulatie");
+    //private EntityManager manager;
 
     // kantine
     private Kantine kantine;
@@ -124,7 +124,7 @@ public class KantineSimulatie {
      */
     public void simuleer(int dagen) {
         //database
-        manager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        //manager = ENTITY_MANAGER_FACTORY.createEntityManager();
 
         // for lus voor dagen
         omzetarray = new double[dagen];
@@ -134,7 +134,7 @@ public class KantineSimulatie {
             int eindedag = i;
             dagaanbieding = artikelnamen[getRandomValue(0, AANTAL_ARTIKELEN -1)];
             Artikel aanbieding = kantineaanbod.getArtikel(dagaanbieding);
-            aanbieding.setArtikelkorting("0.20");
+            aanbieding.setArtikelkorting();
 
             // bedenk hoeveel personen vandaag binnen lopen
             int aantalpersonen = getRandomValue(MIN_PERSONEN_PER_DAG, MAX_PERSONEN_PER_DAG);
@@ -210,8 +210,8 @@ public class KantineSimulatie {
             kantine.getKassa().resetKassa();
             System.out.println("Einde dag: " + (eindedag + 1) + "\n");
 
-            manager.close();
-            ENTITY_MANAGER_FACTORY.close();
+            //manager.close();
+            //ENTITY_MANAGER_FACTORY.close();
 
         }
         // Output voor de 3 methodes in de Administratie klasse
