@@ -1,0 +1,44 @@
+1d. Lees de klassen Student, StudieInschrijving en Telefoon door. 
+Zou je al iets kunnen vertellen over het doel van de annotaties @Id, @GeneratedValue en @Column?
+
+Het is een cast van een database waarde die omgezet word tot een java variabele.
+
+1e. Een viertal tabellen zullen nu in de database zijn aangemaakt, welke zijn deze?
+ 
+student, student_telefoon, studie  en telefoon
+
+2a. Het attribuut telefoons in de klasse Student is geannoteerd met @OneToMany. Waarom zou
+hier @OneToMany en niet @OneToOne zijn gebruikt?
+
+Omdat er meerdere gegevens uit meerdere tabellen bij elkaar opgehaald moeten worden adhv de primary key en de foreign keys in de tabellen. 
+
+2b. • Hoe wordt het verschil zichtbaar in de database? 
+Let hier op de tabellen die zijn aangemaakt en de velden in de tabellen voor een Student en StudieInschrijving.
+
+Zowel studie_id als student_id staan in de tabel: studie. Het is dus niet nodig om een join te gebruiken omdat de gegevens al aan elkaar gelinkt zijn. 
+
+Zou je een nadeel kunnen bedenken waarom voor de relatieStudentenStudieInschrijving
+via studies geen @JoinTable is gebruikt?
+
+Onnodig veel rijen, ofterwijl redundantie in tabel studie.
+
+2c. In de klasse StudieInschrijving is het attribuut student met @ManyToOne geannoteerd.
+Beschrijf hoe deze relatie in de database zichtbaar wordt.
+
+Elke student kan gekoppeld zijn aan meerdere rijen in de tabel studie. Adhv zoeken op meerdere studies kun je uiteindelijk op één student uitkomen.  
+
+2d. De klasse StudentKaart is geannoteerd met @Embeddable en het attribuut kaart in de klasse
+Student met @Embedded.
+• Waar vind je een StudentKaart terug in de database?
+
+In de tabel student, hierin staat een sudentkaartnummer en een vervaldatum hiervoor. 
+
+Wat zou je hieruit kunnen afleiden met betrekking tot het gebruik en de functie van
+@Embeddable en @Embedded?
+
+Dat wanneer je embedded gebruikt de gegevens hiervan moeten worden opgenomen in de tabel onder het aan te maken, in dit geval de student. 
+
+3a. Een transactie wordt ook wel een unit of atomicity genoemd, waarbij atomiciteit in de context
+van databases „alles of niets” betekent. Vooruitkijkend op week 6, kan je voor de kantinesimulatie een situatie bedenken waar je dit patroon zou kunnen toepassen?\
+
+Wanneer een klant niet genoeg geld heeft om te betalen moet de gehele transactie worden afgebroken. 

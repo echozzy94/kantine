@@ -5,12 +5,31 @@ public class Artikel {
 
     private String naam;
     private BigDecimal prijs;
+    private BigDecimal artikelkorting;
+
+    public BigDecimal getArtikelkorting() {
+        return this.artikelkorting;
+    }
+
+    public void setArtikelkorting(String artikelkorting) {
+        this.artikelkorting = new BigDecimal(artikelkorting).setScale(2, RoundingMode.HALF_UP);
+    }
 
     /**
      * Constructor
      * @param naam = Naam van het artikel
      * @param prijs = Prijs van het artikel in String datatype welke word opgeslagen in BigDecimal object
      */
+
+    public Artikel(String naam, String prijs, String artikelkorting) {
+        this.naam = naam;
+        this.prijs = new BigDecimal(prijs).setScale(2, RoundingMode.HALF_UP);
+        if (artikelkorting.isEmpty() == true){
+            this.artikelkorting = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
+        } else {
+        this.artikelkorting = new BigDecimal(artikelkorting).setScale(2, RoundingMode.HALF_UP);
+        }
+    }
 
     public Artikel(String naam, String prijs) {
         this.naam = naam;
@@ -46,7 +65,7 @@ public class Artikel {
      * @param prijs in string formaat
      */
     public void setPrijs(String prijs) {
-        this.prijs = new BigDecimal("0.00").setScale(2, RoundingMode.HALF_UP);
+        this.prijs = new BigDecimal(prijs).setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
