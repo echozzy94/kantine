@@ -3,6 +3,7 @@ import java.util.Iterator;
 import java.util.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 
 public class Kassa {
 
@@ -25,40 +26,13 @@ public class Kassa {
      *
      * @param dienblad Is het dienblad van de klant die moet afrekenen
      */
-    public void rekenAf(Dienblad dienblad) {
-        Iterator<Artikel> artikelen = dienblad.getIterator();
-        BigDecimal klanttebetalen = new BigDecimal(0.00).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal klanttebetalendagaanbieding = new BigDecimal("0.00");
 
-        while (artikelen.hasNext()) {
-            Artikel artikel = artikelen.next();
-            BigDecimal dagaanbiedingkorting = new BigDecimal("0.20");
-            BigDecimal prijsVanArtikel = artikel.getPrijs();
-            //BigDecimal klanttebetalendagaanbieding = new BigDecimal("0.00");
-            if(dagaanbiedingkorting.compareTo(artikel.getArtikelkorting()) == 0) {
-                BigDecimal artikelKortingsbedrag = artikel.getPrijs().multiply(dagaanbiedingkorting);
-                prijsVanArtikel = artikel.getPrijs().subtract(artikelKortingsbedrag);
-                klanttebetalendagaanbieding = klanttebetalendagaanbieding.add(prijsVanArtikel);
-                System.out.println("Dagaanbiedingkorting");
-            }
-            else {
-                klanttebetalen = klanttebetalen.add(artikel.getPrijs());
-            }
-        }
-            if (dienblad.getKlant() instanceof KortingskaartHouder) {
-                BigDecimal kortingsbedrag = klanttebetalen.multiply(((KortingskaartHouder)dienblad.getKlant()).geefKortingsPercentage().setScale(2, RoundingMode.HALF_UP));
-                if(((KortingskaartHouder)dienblad.getKlant()).heeftMaximum() == true && kortingsbedrag.compareTo(((KortingskaartHouder)dienblad.getKlant()).geefMaximum()) == 1) {
-                    kortingsbedrag = ((KortingskaartHouder)dienblad.getKlant()).geefMaximum();
-               }
-               klanttebetalen = klanttebetalen.subtract(kortingsbedrag).setScale(2, RoundingMode.HALF_UP);
-               klanttebetalen = klanttebetalen.add(klanttebetalendagaanbieding).setScale(2, RoundingMode.HALF_UP);
-            }
-        
-    
+    public void rekenAf(Dienblad dienblad) {
             try {
-                dienblad.getKlant().betaal(klanttebetalen);
-                kassaTotaal = kassaTotaal.add(klanttebetalen);
-                gepasseerdeArtikelen++;
+                Factuur f = new Factuur(dienblad, LocalDate.now());
+                dienblad.getKlant().betaal(f.getTotaal());
+                kassaTotaal = kassaTotaal.add(f.getTotaal());
+                gepasseerdeArtikelen = f.getGepasseerdeArtikelen();
                 
             } catch (TeWeinigGeldException e) {
                 System.out.println(dienblad.getKlant().toString() + " " + e.getErrorMelding());
